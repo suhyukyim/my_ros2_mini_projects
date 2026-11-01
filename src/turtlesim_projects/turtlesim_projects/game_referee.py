@@ -26,8 +26,7 @@ class GameReferee(Node):
 
     def __init__(self):
         super().__init__('game_referee')
-        # TODO: turtle1(도망자/플레이어), turtle2(추격자, obstacle_avoid에서 만든 놈)
-        # TODO: /kill, /spawn 서비스 클라이언트 생성
+        # turtle1(도망자/플레이어), turtle2(추격자) pose 구독 + /kill, /spawn 서비스 클라이언트
         self.subscription_1 = self.create_subscription(
             Pose,
             '/turtle1/pose',
@@ -50,7 +49,7 @@ class GameReferee(Node):
         while not self.spawn_client.wait_for_service(timeout_sec=1.0):
             self.get_logger().info('Waiting for /spawn service...')
 
-        # TODO: 점수를 알리는 퍼블리셔. 토픽 이름/타입은 자유 (예: '/game/score', Int32)
+        # 점수를 알리는 퍼블리셔
         self.score_publisher = self.create_publisher(Int32, '/game/score', 10)
 
         self.declare_parameter('catch_radius', 0.5)

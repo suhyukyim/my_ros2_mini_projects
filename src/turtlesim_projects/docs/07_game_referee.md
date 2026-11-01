@@ -17,7 +17,7 @@
 - 랜덤 재배치 (respawn)
 
 ## 상태
-TODO — 구독, 잡힘 판정, 점수 publish, kill/spawn 재배치 로직 미구현
+구현 완료 — 두 거북이 pose 구독, `catch_radius` 이하 잡힘 판정, `/game/score` 점수 publish, kill → spawn 재배치
 
 ## 실행 방법
 ```bash

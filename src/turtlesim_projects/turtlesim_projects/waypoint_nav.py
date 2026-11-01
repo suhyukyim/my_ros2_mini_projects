@@ -25,8 +25,8 @@ class WaypointNav(Node):
 
     def __init__(self):
         super().__init__('waypoint_nav')
-        # TODO: hold a list of waypoints, subscribe to /turtle1/pose,
-        # publish to /turtle1/cmd_vel, advance to next waypoint on arrival
+        # hold a list of waypoints, subscribe to /turtle1/pose,
+        # publish to /turtle1/cmd_vel, and advance to the next waypoint on arrival
         self.publisher = self.create_publisher(Twist, '/turtle1/cmd_vel', 10)
 
         self.subscription = self.create_subscription(

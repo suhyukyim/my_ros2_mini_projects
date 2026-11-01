@@ -26,9 +26,8 @@
 스택이 전부 이 패턴 위에 세워져 있다.
 
 ## 상태
-TODO — `execute_callback`/`cancel_callback` 내부 로직 미구현. 서버 자체는 뜨고
-`ros2 action list`에 `/move_to_goal`이 보여야 하지만, 실제로 goal을 보내면
-아직 아무 동작도 하지 않는다.
+구현 완료 — P 제어로 목표까지 이동하며 남은 거리 feedback 발행, 취소 요청 처리, 도착 시 성공 여부와
+소요 시간 반환. `MultiThreadedExecutor` + `ReentrantCallbackGroup`으로 실행 중에도 pose 구독과 취소가 동작한다.
 
 ## 실행 방법
 ```bash

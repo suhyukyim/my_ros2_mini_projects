@@ -39,5 +39,4 @@ turtle_action_interfaces/action/MoveToGoal`로 언제든 확인 가능.
 - Goal / Result / Feedback 세 블록의 역할 구분.
 
 ## 상태
-완료 — `turtle_action_interfaces` 패키지 자체는 인터페이스 정의만 담당하며 로직이 없어서
-TODO 스텁이 필요 없음.
+완료 — `turtle_action_interfaces` 패키지는 인터페이스 정의만 담당한다.

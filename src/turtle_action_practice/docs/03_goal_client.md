@@ -19,10 +19,10 @@ publish -> 클라이언트의 feedback_callback, 서버의 succeed()/canceled() 
 result.success 로 이어지는 왕복을 직접 눈으로 확인하는 게 목표.
 
 ## 상태
-TODO — `send_goal`부터 `cancel_goal`까지 전부 미구현. `main()`도 아직 `send_goal`을
-호출하지 않아서, 지금 실행하면 그냥 액션 없이 spin만 한다.
+구현 완료 — goal 전송 → 수락 확인 → result 수신을 future 콜백 체인으로 처리하고, feedback(남은 거리)을 출력.
+goal 전송 3초 뒤 `cancel_goal`이 호출돼 취소 경로까지 확인한다.
 
-## 실행 방법 (구현 완료 후)
+## 실행 방법
 ```bash
 colcon build --packages-select turtle_action_practice
 source install/setup.bash

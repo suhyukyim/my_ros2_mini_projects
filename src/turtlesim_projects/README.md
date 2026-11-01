@@ -1,6 +1,6 @@
 # turtlesim_projects
 
-ROS2(Humble) turtlesim으로 하나씩 익혀가는 미니 프로젝트 모음. `ament_python` 빌드 타입 패키지.
+ROS2(Jazzy) turtlesim으로 하나씩 익혀가는 미니 프로젝트 모음. `ament_python` 빌드 타입 패키지.
 
 ## 프로젝트 목록
 

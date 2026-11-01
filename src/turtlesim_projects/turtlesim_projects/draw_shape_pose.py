@@ -47,8 +47,7 @@ class DrawShapePose(Node):
         self.timer_period = self.get_parameter('timer_period').value
         self.pose_recived = False  # Flag to indicate if the pose has been received
 
-        # TODO: what else needs to be initialized here?
-        # (e.g. where to remember the start of the current move/turn segment)
+        # latest pose, and where the current move/turn segment started
         self.current_x = 0.0
         self.current_y = 0.0
         self.current_theta = 0.0
@@ -73,7 +72,7 @@ class DrawShapePose(Node):
         return SetParametersResult(successful=True)
 
     def pose_callback(self, msg):
-        # TODO: store msg.x, msg.y, msg.theta so timer_callback can read them
+        # store the latest pose so timer_callback can read it
         self.current_x = msg.x
         self.current_y = msg.y
         self.current_theta = msg.theta

@@ -31,7 +31,7 @@
 ## 알려진 한계 (dead-reckoning의 근본 문제)
 - `current_angle`, `current_distance`는 실제 센서 값이 아니라 "이 정도 속도로 이만큼 시간이 지났으니 이만큼 움직였을 것"이라는 **추정치**
 - 부동소수점 누적 오차 + tick 단위(0.1초)로만 도달 여부를 확인하기 때문에, 목표치를 정확히 맞추지 못하고 최대 1 tick만큼 오버슈트할 수 있음 → 사각형의 네 변 길이는 비슷해도 회전각이 정확히 90도씩 쌓이지 않아 완전히 닫힌 정사각형이 안 나올 수 있음
-- 근본 해결책은 실제 `/turtle1/pose`를 구독해서 진짜 theta/위치를 기준으로 판단하는 closed-loop 방식 → `draw_shape_pose.py`(TODO)
+- 근본 해결책은 실제 `/turtle1/pose`를 구독해서 진짜 theta/위치를 기준으로 판단하는 closed-loop 방식 → [draw_shape_pose](01b_draw_shape_pose.md)에서 구현
 
 ## 상태
 구현 완료 — 원(상태 없음), 사각형(move/turn 상태 머신, 시간 기반 추정) 동작. 정사각형 각도 오차는 알려진 이슈로 남겨두고 pose 기반 버전에서 해결 예정.

@@ -26,8 +26,8 @@ class TurtleChase(Node):
 
     def __init__(self):
         super().__init__('turtle_chase')
-        # TODO: spawn turtle2, subscribe to /turtle1/pose and /turtle2/pose,
-        # publish to /turtle2/cmd_vel to chase turtle1
+        # spawn turtle2, subscribe to /turtle1/pose and /turtle2/pose,
+        # and publish to /turtle2/cmd_vel to chase turtle1
         self.publisher_2 = self.create_publisher(Twist, '/turtle2/cmd_vel', 10)
 
         spawn_client = self.create_client(Spawn, '/spawn')

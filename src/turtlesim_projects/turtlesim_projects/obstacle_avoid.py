@@ -26,9 +26,8 @@ class ObstacleAvoid(Node):
 
     def __init__(self):
         super().__init__('obstacle_avoid')
-        # TODO: turtle_chase.py처럼 turtle2를 스폰해서 turtle1을 쫓게 한다.
-        # 여기에 turtle3를 "장애물"로 하나 더 스폰해서(고정 위치) 화면에 보이게 한다.
-        # spawn 두 번 호출하는 패턴은 turtle_chase.py의 spawn_client 부분 참고.
+        # turtle2(추격자)를 스폰해서 turtle1을 쫓게 하고,
+        # turtle3를 고정 위치의 "장애물"로 하나 더 스폰한다.
         self.publisher_2 = self.create_publisher(Twist, '/turtle2/cmd_vel', 10)
 
         spawn_client = self.create_client(Spawn, '/spawn')
@@ -58,10 +57,8 @@ class ObstacleAvoid(Node):
         self.get_logger().info(f'Spawned: {move_to_target.result().name}')
         self.get_logger().info(f'Spawned: {avoid_to_obstacle.result().name}')
 
-        # TODO: subscription_1 (turtle1/pose, 추격 대상), subscription_2 (turtle2/pose, 내 위치)
-        # 는 turtle_chase.py의 create_subscription 패턴과 동일.
-        # 장애물(turtle3)은 스폰 후 위치가 고정이므로 굳이 구독하지 않고
-        # 스폰할 때 받은 x, y를 그냥 멤버 변수로 저장해도 됨.
+        # subscription_1: turtle1/pose (추격 대상), subscription_2: turtle2/pose (내 위치).
+        # 장애물(turtle3)은 위치가 고정이라 구독하지 않고 스폰 좌표를 그대로 쓴다.
         self.subscription_1 = self.create_subscription(
             Pose,
             'turtle1/pose',

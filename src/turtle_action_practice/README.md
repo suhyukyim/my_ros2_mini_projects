@@ -15,8 +15,8 @@ ROS2(Jazzy) 액션(action) 통신 패턴을 turtlesim으로 익히는 미니 프
 | 2 | `turtle_action_practice/goal_server.py` | 액션 서버 (목표 이동 + feedback + cancel) | [docs/02_goal_server.md](docs/02_goal_server.md) |
 | 3 | `turtle_action_practice/goal_client.py` | 액션 클라이언트 (goal 전송 + result 대기) | [docs/03_goal_client.md](docs/03_goal_client.md) |
 
-1은 구현 완료(인터페이스 정의만이라 로직 없음). 2~3은 노드 클래스/ActionServer/ActionClient
-연결 보일러플레이트만 있고 핵심 로직은 TODO 상태.
+1~3 모두 구현 완료. 서버는 `MultiThreadedExecutor` + `ReentrantCallbackGroup`으로 액션 실행 중에도
+pose 구독과 취소 콜백이 돌도록 구성했고, 클라이언트는 goal 전송 3초 뒤 취소 요청을 보내 cancel 경로까지 확인한다.
 
 ## 빌드 & 실행
 
